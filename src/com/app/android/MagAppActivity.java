@@ -39,7 +39,7 @@ public class MagAppActivity extends Activity
         String result = getData();
         
         TextView tv = new TextView(this);       
-        tv.setText("Hello, Mag App!");       
+        tv.setText("Hello, Mag App test!");       
         setContentView(tv);
     }
     
