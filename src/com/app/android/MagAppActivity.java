@@ -39,7 +39,7 @@ public class MagAppActivity extends Activity
         String result = getData();
         
         TextView tv = new TextView(this);       
-        tv.setText("Hello, Mag App test!");       
+        tv.setText(result);       
         setContentView(tv);
     }
     
@@ -48,17 +48,17 @@ public class MagAppActivity extends Activity
     	String result = "";
     	
     	//the year data to send
-    	//ArrayList<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>();
+    	ArrayList<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>();
     	
-    	//nameValuePairs.add(new BasicNameValuePair("year","1980"));
+    	nameValuePairs.add(new BasicNameValuePair("year","1980"));
     	
     	InputStream is = null;
     	//http post
     	try
     	{
     	        HttpClient httpclient = new DefaultHttpClient();
-    	        HttpPost httppost = new HttpPost("http://localhost/getAllPeopleBornAfterTest.php");
-    	        //httppost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
+    	        HttpPost httppost = new HttpPost("http://www8.mag-ag.co.de/repository/getAllBenutzer.php");
+    	        httppost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
     	        
     	        HttpResponse response = httpclient.execute(httppost); 
     	        

@@ -9,4 +9,10 @@
     android:layout_height="wrap_content" 
     android:text="@string/hello"
     />
+<TextView android:id="@+id/textView1" android:textAppearance="?android:attr/textAppearanceLarge" android:text="MAG App" android:layout_width="match_parent" android:layout_gravity="center" android:layout_height="wrap_content"></TextView>
+<TextView android:text="E-MAIL ADRESSE" android:id="@+id/textView3" android:layout_width="wrap_content" android:layout_height="wrap_content"></TextView>
+<EditText android:layout_height="wrap_content" android:id="@+id/editText2" android:inputType="textPassword" android:layout_width="200dip"></EditText>
+<TextView android:text="PASSWORT" android:id="@+id/textView2" android:layout_width="wrap_content" android:layout_height="wrap_content"></TextView>
+<EditText android:layout_height="wrap_content" android:id="@+id/editText1" android:inputType="textPassword" android:layout_width="200dip"></EditText>
+<Button android:id="@+id/button1" android:layout_height="wrap_content" android:layout_width="wrap_content" android:text="Anmelden"></Button>
 </LinearLayout>
