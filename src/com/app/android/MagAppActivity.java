@@ -1,5 +1,5 @@
 package com.app.android;
-//hallo ksenia
+
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -29,6 +29,9 @@ public class MagAppActivity extends Activity
     @Override
     public void onCreate(Bundle savedInstanceState) 
     {
+    	//Test Commit
+    	
+    	
     	//pyxsMdeg
     	//user1484171
     	//www8.subdomain.com
