@@ -1,7 +1,17 @@
 package com.app.android;
 
+
 import java.io.BufferedReader;
-import java.io.IOException;
+
+
+
+import java.net.URL;
+
+import android.app.Activity;
+import android.graphics.drawable.Drawable;
+import android.os.Bundle;
+import android.widget.ImageView;
+
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
@@ -18,15 +28,10 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import android.app.Activity;
-import android.os.Bundle;
 import android.util.Log;
 import android.widget.TextView;
 
-import java.net.URL;
-import java.io.InputStream;
-import android.graphics.drawable.Drawable;
-import android.widget.ImageView;
+
 
 public class MagAppActivity extends Activity 
 {
@@ -54,9 +59,11 @@ public class MagAppActivity extends Activity
         setContentView(tv);
         
         
-        ImageView iv = (ImageView) findViewById(R.id.grViewUser);
+        ImageView iv = new ImageView(this);
+       // ImageView iv = (ImageView) findViewById(R.id.grViewUser);
         iv.setImageDrawable(qrGenerate(test));
-       
+        setContentView(iv);
+    
         
     }
     
@@ -135,7 +142,7 @@ public class MagAppActivity extends Activity
 	
 	private Drawable qrGenerate(String convertToQr) {
 		// Nimmt einen String und baut daraus einen QR Code. 
-		// Die Bild URL wird dann als String zurückgegeben. 
+		// Die Bild URL wird dann als Drawable zurückgegeben. 
 		if (!convertToQr.equals("")) {
     		try {
 		URL url = new URL("http://chart.apis.google.com/chart?cht=qr&chs=350x350&chl=test"); 
