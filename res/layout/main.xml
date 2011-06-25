@@ -15,4 +15,5 @@
 <TextView android:text="PASSWORT" android:id="@+id/textView2" android:layout_width="wrap_content" android:layout_height="wrap_content"></TextView>
 <EditText android:layout_height="wrap_content" android:id="@+id/editText1" android:inputType="textPassword" android:layout_width="200dip"></EditText>
 <Button android:id="@+id/button1" android:layout_height="wrap_content" android:layout_width="wrap_content" android:text="Anmelden"></Button>
+<ImageView android:id="@+id/qrViewUser" android:layout_height="wrap_content" android:layout_width="wrap_content"></ImageView>
 </LinearLayout>

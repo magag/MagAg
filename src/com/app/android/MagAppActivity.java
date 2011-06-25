@@ -139,8 +139,9 @@ public class MagAppActivity extends Activity
 		// Die Bild URL wird dann als String zurückgegeben. 
 		if (!convertToQr.equals("")) {
     		try {
-		URL url = new URL("http://chart.apis.google.com/chart?cht=qr&chs=350x350&chl=" + convertToQr); 
+		URL url = new URL("http://chart.apis.google.com/chart?cht=qr&chs=350x350&chl=test"); 
 		InputStream is = (InputStream) url.getContent();
+		 //+ convertToQr
 		Drawable d = Drawable.createFromStream(is, "src");
 
 		return d;
