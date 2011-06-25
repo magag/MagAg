@@ -51,7 +51,7 @@ public class MagAppActivity extends Activity
         
         String result = getData();
         
-        String test = "test";
+        String qrTestString = "Hi%20Matthias";
        
         
         TextView tv = new TextView(this);         
@@ -60,8 +60,8 @@ public class MagAppActivity extends Activity
         
         
         ImageView iv = new ImageView(this);
-       // ImageView iv = (ImageView) findViewById(R.id.grViewUser);
-        iv.setImageDrawable(qrGenerate(test));
+       
+        iv.setImageDrawable(qrGenerate(qrTestString));
         setContentView(iv);
     
         
@@ -145,7 +145,8 @@ public class MagAppActivity extends Activity
 		// Die Bild URL wird dann als Drawable zurückgegeben. 
 		if (!convertToQr.equals("")) {
     		try {
-		URL url = new URL("http://chart.apis.google.com/chart?cht=qr&chs=350x350&chl=test"); 
+    	String qrURL = "http://chart.apis.google.com/chart?cht=qr&chs=350x350&chl=" + convertToQr;		
+		URL url = new URL(qrURL); 
 		InputStream is = (InputStream) url.getContent();
 		 //+ convertToQr
 		Drawable d = Drawable.createFromStream(is, "src");
