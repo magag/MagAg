@@ -1,6 +1,6 @@
 package com.app.android;
  //hallo Konstantin
-
+ //alles Fit?
 import java.io.BufferedReader;
 
 
