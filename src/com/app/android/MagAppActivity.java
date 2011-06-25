@@ -117,4 +117,14 @@ public class MagAppActivity extends Activity
     	
     	return result;
     }
+	
+	
+	private String qrGenerate(String convertToQr) {
+		// Nimmt einen String und baut daraus einen QR Code. 
+		// Die Bild URL wird dann als String zurückgegeben. 
+		
+		String qrUrl = "http://chart.apis.google.com/chart?cht=qr&chs=350x350&chl=" + convertToQr;
+		return qrUrl;
+		
+	}
 }
