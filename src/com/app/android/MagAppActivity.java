@@ -49,15 +49,14 @@ public class MagAppActivity extends Activity
         String test = "test";
        
         
-        TextView tv = new TextView(this);       
-        //tv.setText(result);   
+        TextView tv = new TextView(this);         
         tv.setText(result);   
         setContentView(tv);
         
         
-        ImageView iv = (ImageView) findViewById(R.id.qrViewUser);
+        ImageView iv = (ImageView) findViewById(R.id.grViewUser);
         iv.setImageDrawable(qrGenerate(test));
-        
+       
         
     }
     
