@@ -10,6 +10,9 @@ import java.net.URL;
 import android.app.Activity;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 
 import java.io.InputStream;
@@ -35,37 +38,71 @@ import android.widget.TextView;
 
 public class MagAppActivity extends Activity 
 {
-    /** Called when the activity is first created. */
+
+	// Declare our Views, so we can access them later 
+
+	private EditText etUsername; 
+	private EditText etPassword; 
+	private Button btnLogin; 
+	private TextView lblResult; 
+
+	/** Called when the activity is first created. */
     @Override
     public void onCreate(Bundle savedInstanceState) 
     {
-    	//Test Commit
-    	
-    	
     	//pyxsMdeg
     	//user1484171
     	//www8.subdomain.com
     	
         super.onCreate(savedInstanceState);
-        //setContentView(R.layout.main);
+        setContentView(R.layout.main);
         
-        String result = getData();
+
+        etUsername = (EditText)findViewById(R.id.username); 
+        etPassword = (EditText)findViewById(R.id.password); 
+        btnLogin = (Button)findViewById(R.id.login_button); 
+        lblResult = (TextView)findViewById(R.id.result); 
+
         
+        
+        
+        
+        /*String result = getData();
         String qrTestString = "Hi%20Matthias";
-       
-        
         TextView tv = new TextView(this);         
         tv.setText(result);   
         setContentView(tv);
-        
-        
         ImageView iv = new ImageView(this);
-       
         iv.setImageDrawable(qrGenerate(qrTestString));
-        setContentView(iv);
-    
+        setContentView(iv);*/
+        
+        btnLogin.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				String username = etUsername.getText().toString(); 
+                String password = etPassword.getText().toString(); 
+                if(username.equals("guest") && password.equals("guest")){ 
+                    lblResult.setText("Login successful."); 
+                } else { 
+                    lblResult.setText("Login failed. Username and/or password doesn't match."); 
+                } 
+			}
+		});
+        
+        /*btnLogin.setOnClickListener(new OnClickListener()){ 
+            public void onClick(View v) { 
+                // Check Login 
+                
+            } 
+        }); */
         
     }
+    
+
+    
+
     
 	private String getData()
     {
