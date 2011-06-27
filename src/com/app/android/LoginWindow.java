@@ -8,6 +8,7 @@ import java.io.BufferedReader;
 import java.net.URL;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
@@ -37,7 +38,7 @@ import android.widget.TextView;
 
 
 
-public class MagAppActivity extends Activity 
+public class LoginWindow extends Activity 
 {
 
 	// Declare our Views, so we can access them later 
@@ -56,26 +57,18 @@ public class MagAppActivity extends Activity
     	//www8.subdomain.com
     	
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.main);
+        setContentView(R.layout.login);
         
 
         etUsername = (EditText)findViewById(R.id.username); 
         etPassword = (EditText)findViewById(R.id.password); 
         btnLogin = (Button)findViewById(R.id.login_button); 
         lblResult = (TextView)findViewById(R.id.result); 
-
-        
-        
-        
         
         /*String result = getData();
-        String qrTestString = "Hi%20Matthias";
         TextView tv = new TextView(this);         
         tv.setText(result);   
-        setContentView(tv);
-        ImageView iv = new ImageView(this);
-        iv.setImageDrawable(qrGenerate(qrTestString));
-        setContentView(iv);*/
+        setContentView(tv);*/
         
         btnLogin.setOnClickListener(new OnClickListener() {
 			
@@ -85,20 +78,15 @@ public class MagAppActivity extends Activity
 				String username = etUsername.getText().toString(); 
                 String password = etPassword.getText().toString(); 
                 if(username.equals("guest") && password.equals("guest")){ 
-                    lblResult.setText("Login successful."); 
+                	Intent i = new Intent(LoginWindow.this, MainWindow.class);
+                    startActivity(i);
+
+                    //lblResult.setText("Login successful."); 
                 } else { 
                     lblResult.setText("Login failed. Username and/or password doesn't match."); 
                 } 
 			}
 		});
-        
-        /*btnLogin.setOnClickListener(new OnClickListener()){ 
-            public void onClick(View v) { 
-                // Check Login 
-                
-            } 
-        }); */
-        
     }
     
 
@@ -178,24 +166,5 @@ public class MagAppActivity extends Activity
     }
 	
 	
-	private Drawable qrGenerate(String convertToQr) {
-		// Nimmt einen String und baut daraus einen QR Code. 
-		// Die Bild URL wird dann als Drawable zurückgegeben. 
-		if (!convertToQr.equals("")) {
-    		try {
-    	String qrURL = "http://chart.apis.google.com/chart?cht=qr&chs=350x350&chl=" + convertToQr;		
-		URL url = new URL(qrURL); 
-		InputStream is = (InputStream) url.getContent();
-		 //+ convertToQr
-		Drawable d = Drawable.createFromStream(is, "src");
-
-		return d;
-    		} catch (Exception e) {
-    			return null;
-    		}
-    	} else {
-    		return null;
-    	}
-		
-	}
+	
 }
