@@ -2,20 +2,53 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 	android:orientation="vertical" android:layout_width="fill_parent"
 	android:layout_height="fill_parent">
-	<ImageView android:id="@+id/grViewUser" android:layout_width="fill_parent"
-		android:layout_height="fill_parent"></ImageView>
-
-	<TextView android:id="@+id/textView1" android:textAppearance="?android:attr/textAppearanceLarge"
-		android:text="MAG App" android:layout_width="match_parent"
-		android:layout_gravity="center" android:layout_height="wrap_content"></TextView>
-	<TextView android:text="E-MAIL ADRESSE" android:id="@+id/textView3"
-		android:layout_width="wrap_content" android:layout_height="wrap_content"></TextView>
-	<EditText android:layout_height="wrap_content" android:id="@+id/editText2"
-		android:inputType="textPassword" android:layout_width="200dip"></EditText>
-	<TextView android:text="PASSWORT" android:id="@+id/textView2"
-		android:layout_width="wrap_content" android:layout_height="wrap_content"></TextView>
-	<EditText android:layout_height="wrap_content" android:id="@+id/editText1"
-		android:inputType="textPassword" android:layout_width="200dip"></EditText>
-	<Button android:id="@+id/button1" android:layout_height="wrap_content"
-		android:layout_width="wrap_content" android:text="Anmelden"></Button>
+    <ImageView 
+    android:layout_width="wrap_content" 
+    android:id="@+id/imageView1" 
+    android:layout_gravity="center"
+    android:layout_marginTop="25dip"
+    android:layout_height="wrap_content" 
+    android:src="@drawable/mag_logo">
+    </ImageView>
+    
+    <TextView 
+    android:layout_width="wrap_content" 
+    android:layout_marginTop="50dip"
+    android:layout_height="wrap_content" 
+    android:text="Email" 
+    android:textColor="#0000BB"
+    android:id="@+id/textView5" 
+    android:textAppearance="?android:attr/textAppearanceMedium">
+    </TextView>
+    <EditText 
+    android:inputType="textEmailAddress"
+    android:layout_marginTop="5dip" 
+    android:layout_width="match_parent" 
+    android:layout_height="wrap_content" 
+    android:id="@+id/editText1">
+    </EditText>
+    <TextView
+    android:textColor="#0000BB" 
+    android:layout_width="wrap_content" 
+    android:layout_height="wrap_content" 
+    android:layout_marginTop="5dip"
+    android:text="Passwort" 
+    android:id="@+id/textView6" 
+    android:textAppearance="?android:attr/textAppearanceMedium">
+    </TextView>
+    <EditText 
+    android:layout_width="match_parent"    	
+    android:layout_height="wrap_content" 
+    android:id="@+id/editText2" 
+    android:inputType="textPassword">
+        <requestFocus></requestFocus>
+    </EditText>
+    <Button 
+    android:text="Anmelden" 
+    android:layout_gravity="right"
+    android:layout_marginTop="10dip"
+    android:id="@+id/button4" 
+    android:layout_width="150dip" 
+    android:layout_height="wrap_content">
+    </Button>
 </LinearLayout>
