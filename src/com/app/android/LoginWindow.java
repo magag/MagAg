@@ -17,13 +17,16 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.List;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.NameValuePair;
+import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpPost;
@@ -58,31 +61,68 @@ public class LoginWindow extends Activity
     	
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login);
-        
 
         etUsername = (EditText)findViewById(R.id.username); 
-        etPassword = (EditText)findViewById(R.id.password); 
-        btnLogin = (Button)findViewById(R.id.login_button); 
-        lblResult = (TextView)findViewById(R.id.result); 
+	    etPassword = (EditText)findViewById(R.id.password); 
+	    btnLogin = (Button)findViewById(R.id.login_button); 
+	    lblResult = (TextView)findViewById(R.id.result); 
         
-        /*String result = getData();
-        TextView tv = new TextView(this);         
-        tv.setText(result);   
-        setContentView(tv);*/
-        
-        btnLogin.setOnClickListener(new OnClickListener() {
-			
+        btnLogin.setOnClickListener(new OnClickListener() 
+        {
 			@Override
-			public void onClick(View v) {
-				// TODO Auto-generated method stub
-				String username = etUsername.getText().toString(); 
+			public void onClick(View v) 
+			{
+
+			    String username = etUsername.getText().toString(); 
                 String password = etPassword.getText().toString(); 
-                if(username.equals("guest") && password.equals("guest")){ 
+                
+                //Sende Anfrage zu http://www.wiso-buero.uni-koeln.de/magshop/customer/account/login/
+                //<input name="login[username]" title="E-Mail Adresse" class="input-text required-entry validate-email" id="email" type="text" value=""/>
+                //http://www.wiso-buero.uni-koeln.de/magshop/customer/account/loginPost/
+                
+                HttpClient httpclient = new DefaultHttpClient();    
+                HttpPost httppost = new HttpPost("http://www.wiso-buero.uni-koeln.de/magshop/customer/account/loginPost/");   
+                try 
+                {        
+                	// Add your data        
+                	List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(2);        
+                	
+                	nameValuePairs.add(new BasicNameValuePair("username", "ksenials@web.de"));        
+                	nameValuePairs.add(new BasicNameValuePair("password", "ksenial0"));        
+                	
+                	httppost.setEntity(new UrlEncodedFormEntity(nameValuePairs));        
+                	
+                	// Execute HTTP Post Request       
+                	HttpResponse response = httpclient.execute(httppost);            
+                	HttpEntity entity = response.getEntity();
+        	        
+                	InputStream is = null;
+                	
+                	is = entity.getContent();
+                	
+                	lblResult.setText(is.toString());
+                	
+                } 
+                catch (ClientProtocolException e) 
+                {        
+                	// TODO Auto-generated catch block    
+                	} 
+                catch (IOException e) 
+                {        
+                	// TODO Auto-generated catch block    
+                	}
+                
+                
+                
+                if(username.equals("guest") && password.equals("guest"))
+                { 
                 	Intent i = new Intent(LoginWindow.this, MainWindow.class);
                     startActivity(i);
 
                     //lblResult.setText("Login successful."); 
-                } else { 
+                } 
+                else 
+                { 
                     lblResult.setText("Login failed. Username and/or password doesn't match."); 
                 } 
 			}
