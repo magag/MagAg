@@ -1,0 +1,290 @@
+//pyxsMdeg
+    	//user1484171
+    	//www8.subdomain.com
+    	
+    	
+    	//method.getParams().setParameter("login[username]", username); 
+            	//method.getParams().setParameter("login[password]", password); 
+	          	 
+	          	 
+	          	 //___________________________________________________________________________________
+                
+                
+                //Sende Anfrage zu http://www.wiso-buero.uni-koeln.de/magshop/customer/account/login/
+                //<input name="login[username]" title="E-Mail Adresse" class="input-text required-entry validate-email" id="email" type="text" value=""/>
+                //http://www.wiso-buero.uni-koeln.de/magshop/customer/account/loginPost/
+                //<input name="login[username]" title="E-Mail Adresse" class="input-text required-entry validate-email" id="email" type="text" value=""/>
+                //<input name="login[password]" title="Passwort" class="input-text required-entry validate-password" id="pass" type="password"/>
+                
+                
+
+                //GET http://www.wiso-buero.uni-koeln.de/magshop/customer/account/loginPost/login%5Busername%5D=ksenials@web.de&login%5Bpassword%5D=ksenial0&send=
+//                HttpResponse resp = null; 
+//                DefaultHttpClient client = new DefaultHttpClient(); 
+//                HttpGet httpget = new HttpGet(
+//                "http://www.wiso-buero.uni-koeln.de/magshop/customer/account/loginPost/login%5Busername%5D=ksenials@web.de&login%5Bpassword%5D=ksenial0&send=");
+//                try 
+//                {
+//                	
+//                	httpget.addHeader("Cookie","frontend=e2lfqr69tmt7lhesin82sd0271");
+//                	
+//					resp = client.execute(httpget);
+//				} catch (ClientProtocolException e1) {
+//					// TODO Auto-generated catch block
+//					e1.printStackTrace();
+//				} catch (IOException e1) {
+//					// TODO Auto-generated catch block
+//					e1.printStackTrace();
+//				}
+//				HttpEntity entity = resp.getEntity();
+//				if (entity != null) 
+//				{
+//					try 
+//					{
+//						result = EntityUtils.toString(entity);
+//						System.out.print(result);
+//					} 
+//					catch (ParseException e) 
+//					{
+//						e.printStackTrace();
+//					} 
+//					catch (IOException e) 
+//					{
+//						e.printStackTrace();
+//					}
+//				}
+//                
+//
+//                //___________________________________________________________________________________-
+//                
+//                String body = "";
+//                
+//                //DefaultHttpClient client = new DefaultHttpClient(); 
+//                HttpPost method = null; 
+//                //HttpResponse resp = null; 
+//
+//                String url = "http://www.wiso-buero.uni-koeln.de/magshop/customer/account/loginPost/"; 
+//                
+//                try 
+//	            {
+//					method = new HttpPost( new URI(url) );
+//				} 
+//	            catch (URISyntaxException e) {
+//					e.printStackTrace();
+//				} 
+//	            
+////                method.addHeader("Accept","text/html, application/xhtml+xml, */*");
+////                method.addHeader("Referer","http://www.wiso-buero.uni-koeln.de/magshop/customer/account/login/");
+////                method.addHeader("Accept-Language","de-DE");
+////            	method.addHeader("User-Agent","Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; WOW64; Trident/5.0)");
+////            	method.addHeader("Content-Type","application/x-www-form-urlencoded");
+////            	method.addHeader("Accept-Encoding","gzip, deflate");
+////            	method.addHeader("Host","www.wiso-buero.uni-koeln.de");
+////            	method.addHeader("Content-Length","70");
+////            	method.addHeader("Connection","Keep-Alive");
+////            	method.addHeader("Pragma","no-cache");
+////            	method.addHeader("Cookie","frontend=e2lfqr69tmt7lhesin82sd0271"); 
+//	
+//            	method.getParams().setParameter("login[username]", username); 
+//            	method.getParams().setParameter("login[password]", password); 
+//
+//				try 
+//				{
+//					resp = client.execute(method);
+//				} 
+//				catch (ClientProtocolException e) {
+//					e.printStackTrace();
+//				} 
+//				catch (IOException e) {
+//					e.printStackTrace();
+//				} 
+//
+//				//HttpEntity entity = resp.getEntity();
+//				if (entity != null) 
+//				{
+//					try 
+//					{
+//						body = EntityUtils.toString(entity);
+//					} 
+//					catch (ParseException e) 
+//					{
+//						e.printStackTrace();
+//					} 
+//					catch (IOException e) 
+//					{
+//						e.printStackTrace();
+//					}
+//				}
+//
+//                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+//                HttpClient httpclient = new DefaultHttpClient();    
+//                HttpPost httppost = new HttpPost("http://www.wiso-buero.uni-koeln.de/magshop/customer/account/loginPost/");   
+//                try 
+//                {        
+//                	// Add your data    
+////                	httppost.addHeader("Accept","text/html, application/xhtml+xml, */*");
+////                	httppost.addHeader("Referer","http://www.wiso-buero.uni-koeln.de/magshop/customer/account/login/");
+////                	httppost.addHeader("Accept-Language","de-DE");
+////                	httppost.addHeader("User-Agent","Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; WOW64; Trident/5.0)");
+////                	httppost.addHeader("Content-Type","application/x-www-form-urlencoded");
+////                	httppost.addHeader("Accept-Encoding","gzip, deflate");
+////                	httppost.addHeader("Host","www.wiso-buero.uni-koeln.de");
+////                	httppost.addHeader("Content-Length","70");
+////                	httppost.addHeader("Connection","Keep-Alive");
+////                	httppost.addHeader("Pragma","no-cache");
+////                	httppost.addHeader("Cookie","frontend=e2lfqr69tmt7lhesin82sd0271");
+//                	
+//                	List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(2);        
+//                	
+//                	nameValuePairs.add(new BasicNameValuePair("login[username]", username));        
+//                	nameValuePairs.add(new BasicNameValuePair("login[password]", password));        
+//                	
+//                	httppost.setEntity(new UrlEncodedFormEntity(nameValuePairs));        
+//                	
+//                	// Execute HTTP Post Request       
+//                	HttpResponse response = httpclient.execute(httppost);            
+//                	
+//                	HttpEntity entity = response.getEntity();
+//        	        
+//                	InputStream is = null;
+//                	
+//                	is = entity.getContent();
+//                	
+//                	if (is!=null)
+//                 	{
+//                 		try
+//                 		{
+//             		        BufferedReader reader = new BufferedReader(new InputStreamReader(is,"iso-8859-1"),8);
+//             		        StringBuilder sb = new StringBuilder();
+//             		        String line = null;
+//             		        while ((line = reader.readLine()) != null) 
+//             		        {
+//             		                sb.append(line + "\n");
+//             		        }
+//             		        is.close();
+//             		        result=sb.toString();
+//             		        
+//             		        System.out.print(result);
+//                 		}
+//                 		catch(Exception e11)
+//                 		{
+//                 		        Log.e("log_tag", "Error converting result " + e11.toString());
+//                 		} 
+//                	
+//                 		lblResult.setText(result);
+//                 	}
+//                } 
+//                catch (ClientProtocolException e12) 
+//                {        
+//                	e12.printStackTrace();
+//                } 
+//                catch (IOException e111113) 
+//                {        
+//                	e111113.printStackTrace();
+//                }
+                
+               
+//                
+//                if(username.equals("guest") && password.equals("guest"))
+//                { 
+//                	Intent i = new Intent(LoginWindow.this, MainWindow.class);
+//                    startActivity(i);
+//
+//                    //lblResult.setText("Login successful."); 
+//                } 
+//                else 
+//                { 
+//                    lblResult.setText("Login failed. Username and/or password doesn't match."); 
+//                } 
+
+
+
+
+
+
+
+
+    
+
+    
+	private String getData()
+    {
+    	String result = "";
+    	
+    	//the year data to send
+    	ArrayList<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>();
+    	
+    	nameValuePairs.add(new BasicNameValuePair("year","1980"));
+    	
+    	InputStream is = null;
+    	//http post
+    	try
+    	{
+    	        HttpClient httpclient = new DefaultHttpClient();
+    	        HttpPost httppost = new HttpPost("http://www8.mag-ag.co.de/repository/getAllBenutzer.php");
+    	        httppost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
+    	        
+    	        HttpResponse response = httpclient.execute(httppost); 
+    	        
+    	        HttpEntity entity = response.getEntity();
+    	        is = entity.getContent();
+    	}
+    	catch(Exception e)
+    	{
+    	        Log.e("log_tag", "Error in http connection " + e.toString());
+    	}
+
+    	
+    	
+    	//convert response to string
+    	if (is!=null)
+    	{
+    		try
+    		{
+    		        BufferedReader reader = new BufferedReader(new InputStreamReader(is,"iso-8859-1"),8);
+    		        StringBuilder sb = new StringBuilder();
+    		        String line = null;
+    		        while ((line = reader.readLine()) != null) 
+    		        {
+    		                sb.append(line + "\n");
+    		        }
+    		        is.close();
+    		        result=sb.toString();
+    		}
+    		catch(Exception e11)
+    		{
+    		        Log.e("log_tag", "Error converting result " + e11.toString());
+    		}
+    	
+    		//parse json data
+    		try
+    		{
+    		        JSONArray jArray = new JSONArray(result);
+    		        for(int i=0;i<jArray.length();i++)
+    		        {
+    		                JSONObject json_data = jArray.getJSONObject(i);
+    		                Log.i("log_tag","id: "+json_data.getInt("id")+
+    		                        ", name: "+json_data.getString("name")+
+    		                        ", sex: "+json_data.getInt("sex")+
+    		                        ", birthyear: "+json_data.getInt("birthyear"));
+    		        }
+    		}
+    		
+    		catch(JSONException e)
+    		{
+    		        Log.e("log_tag", "Error parsing data "+e.toString());
+    		}
+    	}
+    	
+    	return result;
+    }

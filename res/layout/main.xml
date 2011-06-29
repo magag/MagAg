@@ -3,18 +3,37 @@
   xmlns:android="http://schemas.android.com/apk/res/android"
   android:orientation="vertical"
   android:layout_width="match_parent"
-  android:layout_height="match_parent">
+  android:layout_height="match_parent"
+  android:background="#455787">
     
-    <ImageView     
-	android:layout_width="wrap_content"     
-	android:id="@+id/imageView1"     
-	android:layout_gravity="center"    
-	android:layout_marginTop="25dip"    
-	android:layout_height="wrap_content"     
-	android:src="@drawable/mag_logo">    
-	</ImageView> 
+    <TextView 
+    android:text="Benutzerübersicht" 
+    android:id="@+id/message" 
+    android:layout_marginTop="25dip" 
+    android:layout_marginLeft="25dip" 
+    android:textColor="#FFFFFF"
+    android:layout_width="wrap_content" 
+    android:textSize="23dip"
+    android:layout_height="wrap_content">
+    </TextView>
+    <!--<ImageView 
+    android:layout_width="wrap_content" 
+    android:layout_height="wrap_content" 
+    android:id="@+id/qrCode">
+    </ImageView>-->
     
+    <ViewFlipper 
+    android:id="@+id/ViewFlipper01"
+ 	android:layout_width="wrap_content" 
+ 	android:layout_marginTop="25dip" 
+ 	android:layout_height="wrap_content">
+		 <!--adding views to ViewFlipper-->
+		 <TextView android:id="@+id/TextView01" android:layout_width="wrap_content"
+		 android:layout_height="wrap_content" android:text="Flipper Content 1"></TextView>
+		 <TextView android:id="@+id/TextView02" android:layout_width="wrap_content"
+		 android:layout_height="wrap_content" android:text="Flipper Content 2"></TextView>
+		 <TextView android:id="@+id/TextView03" android:layout_width="wrap_content"
+		 android:layout_height="wrap_content" android:text="Flipper Content 3"></TextView>
+ </ViewFlipper>
     
-    
-    
-</LinearLayout>
+    </LinearLayout>

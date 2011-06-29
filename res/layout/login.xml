@@ -30,7 +30,7 @@ android:layout_marginTop="30dip"
 android:id="@+id/result" 
 android:textColor="#FF8800"
 android:layout_margin="10dip"
-android:text="TextView">
+android:text="">
 </TextView>   
      
 <TextView     
