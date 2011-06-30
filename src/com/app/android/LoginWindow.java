@@ -56,13 +56,13 @@ public class LoginWindow extends Activity
                 	nameValuePairs.add(new BasicNameValuePair("email",username));
                 	nameValuePairs.add(new BasicNameValuePair("pass",password));
                 	SendRequestLogin r = new SendRequestLogin();
-                	//result = r.getData(nameValuePairs, "http://www8.mag-ag.co.de/repository/getAllBenutzer.php");
+                	result = r.getData(nameValuePairs, "http://www8.mag-ag.co.de/repository/getLoginData.php");
             	
             		//Zweite Variante User zu prüfen -> direkt über die Webseite
             		//HttpLoginUser hLogin = new HttpLoginUser();
                 	//user = hLogin.getLogin(username, password);
                 	//if (user == null)
-            		if ("0".equals(result) || "null".equals(result)) // || "".equals(result))
+            		if ("0".equals(result) || "null\n".equals(result)) // || "".equals(result))
                     {
                     	lblResult.setText("Email/Passwort falsch!");
                     }
