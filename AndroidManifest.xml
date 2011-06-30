@@ -16,7 +16,16 @@
             </intent-filter>
         </activity>
         
-         <activity android:label="Main_Screen" android:name=".MainWindow">
+         <activity android:label="Mitschriften Archiv" android:name=".MainWindow">
+      	</activity>
+      	
+      	<activity android:label="Informationen und Kontaktdaten" android:name=".Info">
+      	</activity>
+      	
+      	<activity android:label="Einstellungen" android:name=".Prop">
+      	</activity>
+        
+        <activity android:label="QR-Code scannen" android:name=".BarC">
       	</activity>
         
 

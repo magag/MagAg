@@ -212,6 +212,21 @@
 
 
 
+<?php
+mysql_connect("localhost","testUser","");
+mysql_select_db("test");
+
+$q=mysql_query("SELECT COUNT(*) as exist FROM benutzer WHERE password=>'.
+$_REQUEST['password'].' '.'AND email='.$_REQUEST['email']");
+
+$result = mysql_query($sql);
+
+while ($row = mysql_fetch_assoc($result)) 
+{
+    echo $row["exist"];
+}
+
+?>
 
 
     
