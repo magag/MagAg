@@ -6,17 +6,18 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
 public class Prop extends Activity
 {
-	private ImageButton archivBt;
 	private ImageButton barBt;
 	private ImageButton logout;
 	private ImageButton infoBt;
 	private TextView login;
 	private Button bt;
+	private EditText editText1; 
 
 	public void onCreate(Bundle savedInstanceState) 
 	{
@@ -24,7 +25,6 @@ public class Prop extends Activity
 		setContentView(R.layout.prop);
 
 		login = (TextView)findViewById(R.id.login);
-		archivBt = (ImageButton) findViewById(R.id.Button01);
 		logout = (ImageButton)findViewById(R.id.logout);
 		barBt = (ImageButton) findViewById(R.id.Button02);
 		infoBt = (ImageButton) findViewById(R.id.Button04);
@@ -36,6 +36,7 @@ public class Prop extends Activity
 			return;
 		}
 		final String user = extras.getString("user");
+		final String userId = extras.getString("userId");
 		if (user != null) 
 		{
 			login.setText("Angemeldet als: " + user);
@@ -51,24 +52,18 @@ public class Prop extends Activity
 			}
 		});
 		
-		archivBt.setOnClickListener(new OnClickListener() 
-		{
-			@Override
-			public void onClick(View v) 
-			{
-				Intent i = new Intent(Prop.this, MainWindow.class);
-            	i.putExtra("user", user);
-            	startActivity(i);
-			}
-		});
-		
 		bt.setOnClickListener(new OnClickListener() 
 		{
 			@Override
 			public void onClick(View v) 
 			{
-				Intent i = new Intent(Prop.this, MainWindow.class);
+				editText1 = (EditText)findViewById(R.id.editText1);
+				final String suchfeld = editText1.getText().toString(); 
+				
+				Intent i = new Intent(Prop.this, Search.class);
+				i.putExtra("userId", userId);
             	i.putExtra("user", user);
+            	i.putExtra("suchfeld", suchfeld);
             	startActivity(i);
 			}
 		});
@@ -79,6 +74,7 @@ public class Prop extends Activity
 			public void onClick(View v) 
 			{
 				Intent i = new Intent(Prop.this, BarC.class);
+				i.putExtra("userId", userId);
             	i.putExtra("user", user);
             	startActivity(i);
 			}
@@ -90,6 +86,7 @@ public class Prop extends Activity
 			public void onClick(View v) 
 			{
 				Intent i = new Intent(Prop.this, Info.class);
+				i.putExtra("userId", userId);
             	i.putExtra("user", user);
             	startActivity(i);
 			}

@@ -18,7 +18,7 @@ import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
 
-public class MainWindow extends Activity
+public class Search extends Activity
 {
 	private ImageButton barBt;
 	private ImageButton propBt;
@@ -30,7 +30,7 @@ public class MainWindow extends Activity
 	public void onCreate(Bundle savedInstanceState) 
 	{
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.main);
+		setContentView(R.layout.search);
 
 		login = (TextView)findViewById(R.id.login);
 		barBt = (ImageButton)findViewById(R.id.Button02);
@@ -45,6 +45,7 @@ public class MainWindow extends Activity
 		}
 		final String user = extras.getString("user");
 		final String userId = extras.getString("userId");
+		final String suchfeld = extras.getString("suchfeld");
 		
 		if (user != null) 
 		{
@@ -54,10 +55,10 @@ public class MainWindow extends Activity
 		//Hole Daten für Benutzer
 		String result="";
     	ArrayList<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>();
-    	nameValuePairs.add(new BasicNameValuePair("id", userId));
+    	nameValuePairs.add(new BasicNameValuePair("veranstaltung", suchfeld));
     	SendRequestLogin r = new SendRequestLogin();
 
-    	result = r.getData(nameValuePairs, "http://www8.mag-ag.co.de/repository/getBenutzerLaufende.php");
+    	result = r.getData(nameValuePairs, "http://www8.mag-ag.co.de/repository/getSearch.php");
 		
     	if ("0".equals(result) || "null\n".equals(result) || "".equals(result))
         {
@@ -98,7 +99,7 @@ public class MainWindow extends Activity
 					catch (JSONException e){ e.printStackTrace();}
 					try 
 					{
-						info = json_data.getString("Veranstaltung")+ "/" + json_data.getString("laufendeNummer") + " " + json_data.getString("Semester") + json_data.getString("Jahr") + " " + json_data.getString("Dozent");
+						info = json_data.getString("Veranstaltung") + " " + json_data.getString("Semester") + json_data.getString("Jahr") + " " + json_data.getString("Dozent");
 					} 
 					catch (JSONException e) { e.printStackTrace(); }
 		        }
@@ -113,7 +114,7 @@ public class MainWindow extends Activity
 			@Override
 			public void onClick(View v) 
 			{
-				Intent i = new Intent(MainWindow.this, BarC.class);
+				Intent i = new Intent(Search.this, BarC.class);
             	i.putExtra("userId", userId);
             	i.putExtra("user", user);
             	startActivity(i);
@@ -125,7 +126,7 @@ public class MainWindow extends Activity
 			@Override
 			public void onClick(View v) 
 			{
-				Intent i = new Intent(MainWindow.this, LoginWindow.class);
+				Intent i = new Intent(Search.this, LoginWindow.class);
             	startActivity(i);
 			}
 		});
@@ -135,7 +136,7 @@ public class MainWindow extends Activity
 			@Override
 			public void onClick(View v) 
 			{
-				Intent i = new Intent(MainWindow.this, Prop.class);
+				Intent i = new Intent(Search.this, Prop.class);
 				i.putExtra("userId", userId);
             	i.putExtra("user", user);
             	startActivity(i);
@@ -147,7 +148,7 @@ public class MainWindow extends Activity
 			@Override
 			public void onClick(View v) 
 			{
-				Intent i = new Intent(MainWindow.this, Info.class);
+				Intent i = new Intent(Search.this, Info.class);
 				i.putExtra("userId", userId);
             	i.putExtra("user", user);
             	startActivity(i);

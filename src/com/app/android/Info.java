@@ -52,6 +52,7 @@ public class Info extends Activity
 			return;
 		}
 		final String user = extras.getString("user");
+		final String userId = extras.getString("userId");
 		if (user != null) 
 		{
 			login.setText("Angemeldet als: " + user);
@@ -73,6 +74,7 @@ public class Info extends Activity
 			public void onClick(View v) 
 			{
 				Intent i = new Intent(Info.this, MainWindow.class);
+				i.putExtra("userId", userId);
             	i.putExtra("user", user);
             	startActivity(i);
 			}
@@ -84,6 +86,7 @@ public class Info extends Activity
 			public void onClick(View v) 
 			{
 				Intent i = new Intent(Info.this, BarC.class);
+				i.putExtra("userId", userId);
             	i.putExtra("user", user);
             	startActivity(i);
 			}
@@ -95,6 +98,7 @@ public class Info extends Activity
 			public void onClick(View v) 
 			{
 				Intent i = new Intent(Info.this, Prop.class);
+				i.putExtra("userId", userId);
             	i.putExtra("user", user);
             	startActivity(i);
 			}

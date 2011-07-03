@@ -38,13 +38,14 @@ public class BarC extends Activity
 			return;
 		}
 		final String user = extras.getString("user");
+		final String userId = extras.getString("userId");
 		if (user != null) 
 		{
 			login.setText("Angemeldet als: " + user);
 		}
 		
 		ImageView iv =(ImageView) findViewById(R.id.grViewUser);
-        iv.setImageDrawable(qrGenerate(user));
+        iv.setImageDrawable(qrGenerate(userId));
 		
 		logout.setOnClickListener(new OnClickListener() 
 		{
@@ -62,6 +63,7 @@ public class BarC extends Activity
 			public void onClick(View v) 
 			{
 				Intent i = new Intent(BarC.this, MainWindow.class);
+				i.putExtra("userId", userId);
             	i.putExtra("user", user);
             	startActivity(i);
 			}
@@ -73,6 +75,7 @@ public class BarC extends Activity
 			public void onClick(View v) 
 			{
 				Intent i = new Intent(BarC.this, Prop.class);
+				i.putExtra("userId", userId);
             	i.putExtra("user", user);
             	startActivity(i);
 			}
@@ -84,6 +87,7 @@ public class BarC extends Activity
 			public void onClick(View v) 
 			{
 				Intent i = new Intent(BarC.this, Info.class);
+				i.putExtra("userId", userId);
             	i.putExtra("user", user);
             	startActivity(i);
 			}

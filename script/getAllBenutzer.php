@@ -29,21 +29,15 @@ if (mysql_num_rows($result) == 0)
     echo "Keine Zeilen gefunden, nichts auszugeben, daher Abbruch";
     exit;
 }
+ 
+$arrReturn = array();
 
-// Solange eine Zeile mit Daten existiert, wird dies in dem assoziativen Array
-// $row abgelegt.
-// Anmerkung: Wenn Sie nur eine Zeile erwarten, brauchen Sie keine Schleife.
-// Anmerkung: Wenn Sie extract($row) innerhalb der folgenden Schleife
-//            verwenden, können Sie damit die Variablen
-//            $userid, $fullname und $userstatus erzeugen.
+while ($arrDbResult = mysql_fetch_assoc($result)) {
 
-while ($row = mysql_fetch_assoc($result)) 
-{
-    echo $row["id"];
-    echo $row["email"];
-    echo $row["pass"];
+$arrReturn[][]=$arrDbResult;
+
 }
 
-mysql_free_result($result);
+echo json_encode($arrReturn)."\n";
 
 ?> 

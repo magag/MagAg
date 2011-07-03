@@ -16,7 +16,17 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-
+/*
+ * Anmeldeinformationen: insgesamt 2 Benutzer in der DB
+ * 
+ * Benutzer 1
+ * email: ksenial0@smail.uni-koeln.de
+ * pass: helloworld :)
+ * 
+ * Benutzer 2:
+ * email: mgerber@smail.uni-koeln.de
+ * pass: helloworld
+ */
 public class LoginWindow extends Activity 
 {
 	public User user = new User();
@@ -51,47 +61,64 @@ public class LoginWindow extends Activity
                 else
                 {
                 	String result="";
-                	//the year data to send
                 	ArrayList<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>();
                 	nameValuePairs.add(new BasicNameValuePair("email",username));
                 	nameValuePairs.add(new BasicNameValuePair("pass",password));
                 	SendRequestLogin r = new SendRequestLogin();
+                	
+                	//script ruft Anmeldeinformationen mit vorhandenen Anmeldeinformationen ab
+                	//konvertiert in ein JASON-Object
                 	result = r.getData(nameValuePairs, "http://www8.mag-ag.co.de/repository/getLoginData.php");
             	
             		//Zweite Variante User zu prüfen -> direkt über die Webseite
-            		//HttpLoginUser hLogin = new HttpLoginUser();
+            		
+                	//HttpLoginUser hLogin = new HttpLoginUser();
                 	//user = hLogin.getLogin(username, password);
+                	
                 	//if (user == null)
-            		if ("0".equals(result) || "null\n".equals(result)) // || "".equals(result))
+            		if ("0".equals(result) || "null\n".equals(result) || "".equals(result))
                     {
                     	lblResult.setText("Email/Passwort falsch!");
                     }
                     else
                     {
-//                    	JSONArray jArray = null;
-//						try 
-//						{
-//							jArray = new JSONArray(result);
-//						} 
-//						catch (JSONException e) { e.printStackTrace(); }
-//        		        for(int i=0;i < jArray.length();i++)
-//        		        {
-//        		                JSONObject json_data = null;
-//								try 
-//								{
-//									json_data = jArray.getJSONObject(i);
-//								} 
-//								catch (JSONException e){ e.printStackTrace();}
-//								try 
-//								{
-//									user.setName(json_data.getString("name"));
-//								} 
-//								catch (JSONException e) { e.printStackTrace(); }
-//        		        }
-                    	user.setEmail(username);
+                    	JSONArray jArray = null;
+						try 
+						{
+							jArray = new JSONArray(result);
+						} 
+						catch (JSONException e) { e.printStackTrace(); }
+        		        for(int i = 0; i < jArray.length(); i++)
+        		        {
+        		                JSONObject json_data = null;
+        		                
+        		                int lenhthArr = 0;
+								
+        		                try 
+								{
+									lenhthArr = jArray.getJSONArray(i).length();
+								} catch (JSONException e1) {e1.printStackTrace();}
+								
+        		                for(int j = 0; j < lenhthArr; j++)
+                		        {
+									try 
+									{
+										json_data = jArray.getJSONArray(i).getJSONObject(j);
+									} 
+									catch (JSONException e){ e.printStackTrace();}
+									try 
+									{
+										user.setName(json_data.getString("name"));
+										user.setEmail(json_data.getString("email"));
+										user.setId(json_data.getString("id"));
+									} 
+									catch (JSONException e) { e.printStackTrace(); }
+                		        }
+        		        }
                     	
                     	Intent i = new Intent(LoginWindow.this, MainWindow.class);
-                    	i.putExtra("user", user.getEmail());
+                    	i.putExtra("user", user.getName());
+                    	i.putExtra("userId", "4001214");
                     	startActivity(i);
                     }
                 }

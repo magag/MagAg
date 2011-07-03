@@ -2,19 +2,19 @@ package com.app.android;
 
 public class User 
 {
-	private String email = "";
-	private String vorName = "";
-	private String name = "";
-	private String andere = "";
+	private String email = null;
+	private String id = null;
+	private String name = null;
+	private String andere = null;
 	
-	public  void setVorname (String vorName)        
+	public  void setId (String id)        
 	{            
-		this.vorName = vorName;      
+		this.id = id;      
 	}
 	
-	public String getVorname ()        
+	public String getId ()        
 	{            
-		return vorName;        
+		return id;        
 	}
 	
 	public  void setName (String name)        

@@ -27,6 +27,9 @@
         
         <activity android:label="QR-Code scannen" android:name=".BarC">
       	</activity>
+      	
+      	 <activity android:label="Suche" android:name=".Search">
+      	</activity>
         
 
     </application>

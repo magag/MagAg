@@ -30,7 +30,7 @@
     </ImageButton>
  </RelativeLayout>
     
-<RelativeLayout 
+<LinearLayout 
  		android:id="@+id/ViewFlipper01"
  		android:layout_marginTop="5dip" 
  		android:layout_marginRight="5dip" 
@@ -41,59 +41,17 @@
  		android:layout_height="365dip">
  		
  		<!--adding views to ViewFlipper-->
+ 		    <ListView 
+ 		    android:layout_height="wrap_content" 
+ 		    android:layout_weight="1" 
+ 		    android:background="#000000"
+ 		    android:id="@+id/listView1" 
+ 		    android:layout_width="match_parent">
+ 		   </ListView>
  		
-		 <TextView 
-		 android:id="@+id/TextView01" 
-		 android:layout_width="wrap_content"
-		 android:layout_height="wrap_content" 
-		 android:layout_marginLeft="5dip"
-		 android:layout_marginTop="20dip"
-		 android:text="Suche Mitschriften (z.B. Marketing)">
-		 </TextView>
-		 <EditText 
-		 android:layout_height="wrap_content" 
-		 android:layout_weight="1" 
-		 android:width="300dip"
-		 android:layout_marginTop="40dip"
-		 android:layout_width="wrap_content" 
-		 android:id="@+id/editText1">
-		     <requestFocus></requestFocus>
-		 </EditText>
-		 <TextView 
-		 android:id="@+id/TextView02" 
-		 android:layout_marginLeft="5dip"
-		 android:layout_width="wrap_content"
-		 android:layout_height="wrap_content" 
-		 android:layout_marginTop="85dip"
-		 android:text="Suche nach allen Mitschriften * eingeben">
-		 </TextView>
-		 <Button 
-		 android:text="Suchen" 
-		 android:width="300dip"
-		 android:id="@+id/button1" 
-		 android:layout_width="wrap_content" 
-		  android:layout_marginTop="120dip"
-		 android:layout_height="wrap_content" 
-		 android:layout_alignParentLeft="true">
-		 </Button>
-		 <TextView 
-		 android:id="@+id/TextView03" 
-		 android:layout_width="wrap_content"
-		 android:layout_marginLeft="5dip"
-		 android:layout_height="wrap_content" 
-		 android:layout_marginTop="240dip"
-		 android:text="Folgende Funktion ab der naechsten Version verfuegbar.">
-		 </TextView>
-		 <Button 
-		 android:text="Suchen ('location-based')" 
-		 android:width="300dip"
-		 android:id="@+id/button2" 
-		 android:layout_width="wrap_content" 
-		  android:layout_marginTop="275dip"
-		 android:layout_height="wrap_content" 
-		 android:layout_alignParentLeft="true">
-		 </Button>
- </RelativeLayout>
+		 
+		 
+ </LinearLayout>
 
 
 	
